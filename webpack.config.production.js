@@ -48,7 +48,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './scripts/index',
+  entry: './src/index',
   output: {
     path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
@@ -76,7 +76,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'scripts')
+        include: path.join(__dirname, 'src')
       },
       {
         test: /\.json$/,

@@ -27,6 +27,7 @@
   "homepage": "https://github.com/vasanthk/react-es6-webpack-boilerplate",
   "dependencies": {
     "babel-runtime": "^6.20.0",
+    "peerweb": "^0.0.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "steem": "^0.6.7"
