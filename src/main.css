@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);body {
+    background: #BE90D4;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+.App {
+    display: flex;
+    justify-content: space-between;
+}
+.row {
+    flex-grow:1;
+}
+#inner {
+    min-width: 90%;
+    display: table;
+    margin: 10% auto;
+    background: white;
+    padding: 25px 35px;
+    box-shadow: -1px 10px 36px 0px rgba(0, 0, 0, 0.75);
+}
+.btn {
+    background-color: #59ABE3;
+    font-size: 16px;
+    color: white;
+    padding: 10px 30px;    
+    border: none;
+    border-radius: 9px 27px;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2), 0 4px 10px 0 rgba(0,0,0,0.19);
+    float: right;
+    margin-right: 60px;
+}

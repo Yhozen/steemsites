@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import steem from 'steem'
-import PeerWeb from 'peerweb'
+import PeerWeb from './peerweb.min'
 
 const { log, info } = console
 
@@ -13,7 +13,7 @@ export default class App extends Component {
       info(JSON.parse(result.json_metadata))
     })
     const own = new PeerWeb(true)
-    own.render('magnet:?xt=urn:btih:150a6d99e26aa722531c7cd5626631bdedf277bd&dn=page&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com')
+    own.render('magnet:?xt=urn:btih:582f73211a20246176cd6b406dde653924a3ec93&dn=page&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com')
   }
   render() {
     return (
