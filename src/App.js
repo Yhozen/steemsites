@@ -1,19 +1,34 @@
 import React, { Component } from 'react'
 import steem from 'steem'
-import PeerWeb from './peerweb.min'
+import PeerWeb from 'peerweb'
 
 const { log, info } = console
 
+const peerweb = new PeerWeb(true)
 //@garox/aprende-a-programar-or-web-mobile-server-y-desktop#@garox/re-garox-aprende-a-programar-or-web-mobile-server-y-desktop-20171222t213647532z
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {value: ''}
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
   componentDidMount() {
     steem.api.getAccounts(['ned', 'dan'], log) // crazy af
     steem.api.getContent('garox', 're-garox-aprende-a-programar-or-web-mobile-server-y-desktop-20171222t213647532z', function(err, result) {
       console.log(err);
       info(JSON.parse(result.json_metadata))
     })
-    const own = new PeerWeb(true)
-    own.render('magnet:?xt=urn:btih:582f73211a20246176cd6b406dde653924a3ec93&dn=page&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com')
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value})
+  }
+
+  handleSubmit(event) {
+    peerweb.render(this.state.value)
+    event.preventDefault()
   }
   render() {
     return (
@@ -22,7 +37,13 @@ export default class App extends Component {
         <div className="row">
           <div id="inner">
             <h1>SteemSites</h1>
-            <p>Enjoy!</p>
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Name:
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
             <p>Enjoy the torrent!</p>
           </div>
         </div>

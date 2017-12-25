@@ -3157,9 +3157,9 @@ pbkdf2-compat@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pbkdf2-compat/-/pbkdf2-compat-2.0.1.tgz#b6e0c8fa99494d94e0511575802a59a5c142f288"
 
-peerweb@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/peerweb/-/peerweb-0.0.1.tgz#1fe539bc4f35ca416fb834bf466522fd21a9ffe6"
+peerweb@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/peerweb/-/peerweb-0.1.1.tgz#1627dbf5b76938bafdd4e0228950982d814771c9"
   dependencies:
     async "^2.6.0"
     webtorrent "^0.98.20"
