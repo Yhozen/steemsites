@@ -27,7 +27,7 @@
   "homepage": "https://github.com/vasanthk/react-es6-webpack-boilerplate",
   "dependencies": {
     "babel-runtime": "^6.20.0",
-    "peerweb": "^0.1.1",
+    "peerweb": "^0.1.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "steem": "^0.6.7"
@@ -42,6 +42,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "cross-env": "^3.1.3",
+    "css-loader": "^0.28.7",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-formatter-pretty": "^1.1.0",
@@ -52,6 +53,7 @@
     "eslint-plugin-react": "^6.8.0",
     "json-loader": "^0.5.7",
     "react-transform-hmr": "^1.0.4",
+    "style-loader": "^0.19.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }

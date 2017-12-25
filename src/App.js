@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import steem from 'steem'
 import PeerWeb from 'peerweb'
 
+import './main.css'
+
 const { log, info } = console
 
 const peerweb = new PeerWeb(true)

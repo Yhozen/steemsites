@@ -72,10 +72,12 @@ module.exports = {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: path.join(__dirname, 'src')
-      },
-      {
+      },{
         test: /\.json$/,
         loader: 'json-loader'
+      }, { 
+        test: /\.css$/, 
+        loader: "style-loader!css-loader" 
       }
     ]
   }
