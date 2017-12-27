@@ -3,68 +3,84 @@ import steem from 'steem'
 import PeerWeb from 'peerweb'
 import $ from 'jquery'
 
+import Publish from './pages/Publish'
+import Navigate from './pages/Navigate'
+
 import './pure/forms.css'
 import './pure/buttons-min.css'
 import 'normalize.css'
 import './main.css'
-import { validateAccountName } from 'steem/lib/utils';
+import { validateAccountName } from 'steem/lib/utils'; // When was this added?
 
 const { log, info } = console
 
 const peerweb = new PeerWeb(true)
 
 export default class App extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       magnetLink: '',
       author: '',
       wif: '',
-      permlink: ''
+      permlink: '',
+      weblink: '',
+      page: null
     }
-
+    this.changePage = this.changePage.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.goto = this.goto.bind(this)
   }
-  componentDidMount() {
-    steem.api.getAccounts(['ned', 'dan'], log) // crazy af
-    steem.api.getContent('garox', 're-garox-aprende-a-programar-or-web-mobile-server-y-desktop-20171222t213647532z', function(err, result) {
-      console.log(err);
-      info(JSON.parse(result.json_metadata))
-    })
+  componentDidMount () {
   }
 
-  handleChange(event, value) {
+  handleChange (event, value) {
     let toChange = {}
     toChange[value] = event.target.value
     this.setState(toChange)
   }
 
-  render() {
-    let { author, wif, permlink, magnetLink } = this.state
+  goto (e) {
+    const { weblink } = this.state
+    const parts = weblink.split('/')
+    steem.api.getContent(parts[0], parts[1], function(err, result) {
+      if (err) cb(err)
+      let { magnetLink } = JSON.parse(result.json_metadata)
+      log(magnetLink)
+      peerweb.render(magnetLink)
+    })
+    e.preventDefault()
+  }
+
+  changePage (n) {
+    let { author, wif, permlink, magnetLink, weblink } = this.state
+    const { goto, handleChange, setState } = this
+    if (n == 1) {
+      setState({page: <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> })
+    } else if (n == 2) {
+      setState({page:  <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>})
+    } else {
+      setState({page: <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> })
+    }
+  }
+
+  render () {
+    let { author, wif, permlink, magnetLink, weblink, page } = this.state
+    const { goto, handleChange, setState } = this
     return (
       <div className='App'>
           <div id="inner">
             <h1>SteemSites</h1>
-            <form className="pure-form" onSubmit={e => write(e, author, wif, permlink, magnetLink)}>
-              <div className="pure-u-1">
-                <input type='text' placeholder='author' value={author} onChange={e => this.handleChange(e, 'author')} />
-                <input type='text' placeholder='wif' value={wif} onChange={e => this.handleChange(e, 'wif')} />
-              </div>
-              <div className="pure-u-1">
-                <input type='text' placeholder='permlink' value={permlink} onChange={e => this.handleChange(e, 'permlink')} />
-                <input type='text' placeholder='magnet link' value={magnetLink} onChange={e => this.handleChange(e, 'magnetLink')} />
-                <button type="submit" className="pure-button pure-button-primary">Publish</button>
-              </div>
-            </form>
-            <p>Enjoy the torrent!</p>
+            { page? page : <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> }
+            <p>Enjoy the torrente!</p>
           </div>
         <button className="btn">Login</button>
     </div>
-    );
+    )
   }
 }
 
-function write( event, author, wif, permlink, magnetLink ) {
+function write ( e, author, wif, permlink, magnetLink ) {
   let title = 'steemsites'
   let body = 'testing'
   let json_metadata = {
@@ -73,7 +89,8 @@ function write( event, author, wif, permlink, magnetLink ) {
   }
   const jsonMetadata = JSON.stringify(json_metadata)
   steem.broadcast.comment(wif, 'garox', 'aprende-a-programar-or-web-mobile-server-y-desktop', author, permlink, title, body, jsonMetadata, function(err, result) {
-    console.log(result)
-  });
-  event.preventDefault()
+    if (err) throw err
+    log(result)
+  })
+  e.preventDefault()
 }
