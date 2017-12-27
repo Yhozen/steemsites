@@ -83,7 +83,10 @@ module.exports = {
         loader: 'json-loader'
       }, { 
         test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+        loader: "style-loader!css-loader",
+        optios: {
+          minimize: true
+        }
       }
     ]
   }
