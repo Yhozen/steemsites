@@ -78,6 +78,12 @@ module.exports = {
       }, { 
         test: /\.css$/, 
         loader: "style-loader!css-loader" 
+      }, {
+        test: /\.(png|jp(e*)g|svg)$/,  
+        loader: 'url-loader',
+        options: { 
+          name: 'images/[hash]-[name].[ext]'
+        } 
       }
     ]
   }

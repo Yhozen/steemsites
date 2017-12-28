@@ -17,4 +17,4 @@ const Publish = ({write, handleChange, states}) => {
     )
 }
    
-export default Publish;
+export default Publish

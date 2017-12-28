@@ -11,4 +11,4 @@ const Navigate = ({goto, handleChange, weblink}) => (
     </form>
 )
    
-export default Navigate;
+export default Navigate

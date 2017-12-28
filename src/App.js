@@ -7,10 +7,16 @@ import Publish from './pages/Publish'
 import Navigate from './pages/Navigate'
 
 import './pure/forms.css'
-import './pure/buttons-min.css'
-import 'normalize.css'
+import './pure/buttons.css'
 import './main.css'
-import { validateAccountName } from 'steem/lib/utils'; // When was this added?
+
+import headerBG from './images/header.jpg' // Cannot load without this image because it's cool af
+
+const images = {
+  header: headerBG,
+  middle: 'https://lh3.googleusercontent.com/H5b6w6IpPE4woX4pjo_rb8VPIjN3_ARXlHyCQFJGiI4KfIJ_DycJOLTLqNzSyww-I9OoZYv7bNMmiJpG3dITpOYA6tL98tAPk6k8vJPfZpwNICbtTbN8xglP3yONQl4vxOtHcQjEIN5BYfv94lFWuqPOmZ3Sub8fV0oC_J4N2Rup_oIFlqBANTfxIMHSWt8ch1475GnzV2mdDA_lyHpL5Nj8M4yrUdD9o8ifH7IqtnAjd5cvGjiAHAf4S8mJj318SMLKXe4j0oU684blM3Da69cx6tGpThhWh4zZkofNkwm0Hzq8gbG5C9j1yJAdQGghXy_gzaq4qQOiqYr0MesiMRPZ7TFZhyNcpDBzevpuSEgoQlv-DtLe54nv5Xk1ScDqNQ80eefq4v7PbnkCOHmgrNTNpWT_stEaonhuMlk4D2kg_YSPqQi9iO8KjFWhs5dkHUWmPKRDO6tBjNO9z7KehqHODbxC_LGH9HbX5ZEukFvTSP0u2HxahQ2qqAxanj6GwGhKi_4JcjzLECbcQ6f0SUoP61-Y2j2-SuvwD9vA6peoA7VKDna9FUNdlnl0Y4kYy9hY39TFsCJ9SRNqt_gq-6Jb5WlFglaziMgkR06o=w1440-h810-no',
+  last: 'https://lh3.googleusercontent.com/OqOu0bvLI1veosvgmvZkHr6NkJXk2CW8tyh59VIuY7R0BaYn5z_rxQkpvfsAn27ABzOMPEtTN1GM5LuCFyZcnrEdColy-kze584HOzFrheoGcDJA42LEFxZgLq0hGT_LTum5hvgYEHpAYKg_To7YMnqraG9vO7rGAGUAAs0a4WwdPXGCohJq39tAW4dxfAQByzIq1Rj-xjyxE2ZC1sMfYWdHtLUEMpb9FD6h4xyw4U8RV1ZYxPDA6uz9s_uiLnEiOBtxzDnMqJfxxrYO9-4PhmiHNcz9pTsXm-7XUOHQSuKFogVNa7PsDrVDYogMBJpKL6oANVSq_-XPxyFVnei0Ju932dI_cUYhwfxOB3WN5IMgcbxLJUfdTqV3Vr7xAMD6qUwwdH5qUfJFHwy3OA15lFk8_Td5nhDraU0lrv4FcemdMVVNX18anKpTI5dsmsV92kLY3EDpZklQBWe6h2eUMbyvOdjEFFnftB5l_N54WUohHvJlu3eD78sc0ZmBQsZSa_i2tFVaT1Ya2UkCQvz_pUA5DBDLgw48H1taEBD2G8SvN0qUn8pKgGtTk9e19nYtO759KVYavaMiXPagmRkLRS_hjCZnTXlg4fX7V7p2=w1440-h810-no'
+}
 
 const { log, info } = console
 
@@ -24,14 +30,10 @@ export default class App extends Component {
       author: '',
       wif: '',
       permlink: '',
-      weblink: '',
-      page: null
+      weblink: ''
     }
-    this.changePage = this.changePage.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.goto = this.goto.bind(this)
-  }
-  componentDidMount () {
   }
 
   handleChange (event, value) {
@@ -52,29 +54,37 @@ export default class App extends Component {
     e.preventDefault()
   }
 
-  changePage (n) {
-    let { author, wif, permlink, magnetLink, weblink } = this.state
-    const { goto, handleChange, setState } = this
-    if (n == 1) {
-      setState({page: <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> })
-    } else if (n == 2) {
-      setState({page:  <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>})
-    } else {
-      setState({page: <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> })
-    }
-  }
-
   render () {
     let { author, wif, permlink, magnetLink, weblink, page } = this.state
-    const { goto, handleChange, setState } = this
+    const { goto, handleChange } = this
     return (
       <div className='App'>
-          <div id="inner">
+      <section>
+        <img className="pure-img" src={images.header}/>
+        <div className="skewed-up-left"></div>
+      </section>
+      <section id='sec2'>
             <h1>SteemSites</h1>
-            { page? page : <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> }
-            <p>Enjoy the torrente!</p>
-          </div>
-        <button className="btn">Login</button>
+            <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> 
+            <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
+            <p>Enjoy the torrent!</p>
+      </section>
+      <section>
+      <img className="pure-img" src={images.middle}/>
+        <div className="skewed-down-right"></div>
+        <div className="skewed-up-right"></div>
+      </section>
+      <section id='sec2'>
+            <h1>SteemSites</h1>
+            <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> 
+            <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
+            <p>Enjoy the torrent!</p>
+      </section>
+      <section>
+      <img className="pure-img" src={images.last}/>
+        <div className="skewed-down-right"></div>
+      </section>
+        <button className='btn'>Login</button>
     </div>
     )
   }
