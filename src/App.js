@@ -6,6 +6,7 @@ import AOS from 'aos'
 import Publish from './pages/Publish'
 import Navigate from './pages/Navigate'
 import Animated from './utilities/Animated'
+import Ribbon from './utilities/Ribbon'
 
 import './pure/forms.css'
 import './pure/buttons.css'
@@ -99,6 +100,7 @@ export default class App extends Component {
         <div className="skewed-down-right"></div>
       </section>
         <button className='btn'>Login</button>
+        <Ribbon/>
     </div>
     )
   }
