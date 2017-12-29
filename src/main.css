@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Lora:400,700,400italic,700italic);
 :root {
     --bg-color: white;
   }
@@ -6,7 +6,7 @@
 
 body {
     background: var(--bg-color);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     margin:  0;
     padding: 0;
 }
@@ -17,9 +17,32 @@ section {
     height: 100vh;
     overflow: hidden;
 }
+section h1 {
+    font-size: 60px;
+    line-height: 100%;
+    letter-spacing: 0;
+    font-weight: 400;
+    text-align: center;
+    margin: 15px 0;
+}
+section h2 {
+    font-size: 30px;
+    line-height: 100%;
+    letter-spacing: 0;
+    font-weight: 300;
+    text-align: center;
+    margin: 15px 0;
+}
+section p {
+    font-size: 20px;
+    text-align: justify;
+}
 #sec2 {
     padding: 50px 150px;
     box-sizing: border-box;
+}
+.spacer {
+    margin: 30px auto;
 }
 .btn {
     background-color: #59ABE3;

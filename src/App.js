@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import steem from 'steem'
 import PeerWeb from 'peerweb'
-import $ from 'jquery'
+import AOS from 'aos'
 
 import Publish from './pages/Publish'
 import Navigate from './pages/Navigate'
+import Animated from './pages/Animated'
 
 import './pure/forms.css'
 import './pure/buttons.css'
 import './main.css'
+import 'aos/dist/aos.css'
 
 import headerBG from './images/header.jpg' // Cannot load without this image because it's cool af
 
@@ -36,6 +38,10 @@ export default class App extends Component {
     this.goto = this.goto.bind(this)
   }
 
+  componentDidMount() {
+    AOS.init()
+  }
+
   handleChange (event, value) {
     let toChange = {}
     toChange[value] = event.target.value
@@ -44,8 +50,8 @@ export default class App extends Component {
 
   goto (e) {
     const { weblink } = this.state
-    const parts = weblink.split('/')
-    steem.api.getContent(parts[0], parts[1], function(err, result) {
+    const [ author , permlink ] = weblink.split('/')
+    steem.api.getContent(author, permlink, function(err, result) {
       if (err) cb(err)
       let { magnetLink } = JSON.parse(result.json_metadata)
       log(magnetLink)
@@ -64,10 +70,18 @@ export default class App extends Component {
         <div className="skewed-up-left"></div>
       </section>
       <section id='sec2'>
-            <h1>SteemSites</h1>
-            <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> 
-            <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
-            <p>Enjoy the torrent!</p>
+        <Animated>
+            <h1>STEEMSITES</h1>
+            <h2>Decentralize the web.</h2>
+        </Animated > 
+        <div className='spacer' />
+        <Animated animation='slide-right' offset='300'>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </Animated>
+        <Animated animation='fade-zoom-in' duration='600' offset='400'>
+          <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/>
+        </Animated>
+             
       </section>
       <section>
       <img className="pure-img" src={images.middle}/>
@@ -75,10 +89,10 @@ export default class App extends Component {
         <div className="skewed-up-right"></div>
       </section>
       <section id='sec2'>
-            <h1>SteemSites</h1>
-            <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/> 
-            <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
-            <p>Enjoy the torrent!</p>
+            <h1></h1>
+            <Animated>
+              <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
+            </Animated>
       </section>
       <section>
       <img className="pure-img" src={images.last}/>
