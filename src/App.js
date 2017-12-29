@@ -5,7 +5,7 @@ import AOS from 'aos'
 
 import Publish from './pages/Publish'
 import Navigate from './pages/Navigate'
-import Animated from './pages/Animated'
+import Animated from './utilities/Animated'
 
 import './pure/forms.css'
 import './pure/buttons.css'
@@ -78,7 +78,7 @@ export default class App extends Component {
         <Animated animation='slide-right' offset='300'>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </Animated>
-        <Animated animation='fade-zoom-in' duration='600' offset='400'>
+        <Animated animation='fade-zoom-in' duration='600' offset='350'>
           <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/>
         </Animated>
              
