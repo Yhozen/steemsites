@@ -1,17 +1,12 @@
 import React, { Component } from 'react'
 import steem from 'steem'
 import PeerWeb from 'peerweb'
-import AOS from 'aos'
 
-import Publish from './pages/Publish'
-import Navigate from './pages/Navigate'
-import Animated from './utilities/Animated'
-import Ribbon from './utilities/Ribbon'
+import { Publish, Navigate } from './pages'
+import { AOS, Animated, Ribbon } from './utilities'
 
-import './pure/forms.css'
-import './pure/buttons.css'
+import { buttons, forms } from './pure'
 import './main.css'
-import 'aos/dist/aos.css'
 
 import headerBG from './images/header.jpg' // Cannot load without this image because it's cool af
 
