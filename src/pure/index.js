@@ -1,4 +1,4 @@
-import buttons from 'purecss/build/buttons-min.css'
-import forms from 'purecss/build/forms-min.css'
+import buttons from 'purecss/build/buttons.css'
+//import forms from 'purecss/build/forms.css'
 
-export { buttons, forms }
+export { buttons,  }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import N , {notify} from 'react-notify-toast'
-import steem from 'steem'
 import PeerWeb from 'peerweb'
 
 import { Publish, Navigate } from './pages'
@@ -17,8 +16,6 @@ const images = {
   last: 'https://lh3.googleusercontent.com/rAKp9cydlNx1t2pIRiojbAI5MRUkrPeKFrQYBRfZP8CNePy3Ko85R2364zPHvjt1Bwp4SznfPjZiqp4=w4160-h2340-no'
 }
 
-const { log, info } = console
-
 const peerweb = new PeerWeb(true)
 
 export default class App extends Component {
@@ -32,7 +29,6 @@ export default class App extends Component {
       weblink: ''
     }
     this.handleChange = this.handleChange.bind(this)
-    this.goto = this.goto.bind(this)
   }
 
   componentDidMount() {
@@ -43,19 +39,6 @@ export default class App extends Component {
     let toChange = {}
     toChange[value] = event.target.value
     this.setState(toChange)
-  }
-
-  goto (e) {
-    const { weblink } = this.state
-    const [ author , permlink ] = weblink.split('/')
-    steem.api.getContent(author, permlink, function(err, result) {
-      if (err) cb(err)
-      let { magnetLink } = JSON.parse(result.json_metadata)
-      log(magnetLink)
-      notify.show('Download starting')
-      peerweb.render(magnetLink)
-    })
-    e.preventDefault()
   }
 
   render () {
@@ -80,7 +63,7 @@ export default class App extends Component {
             sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </Animated>
         <Animated animation='fade-zoom-in' duration='600' offset='350'>
-          <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/>
+          <Navigate goto={goto} handleChange={handleChange} weblink={weblink} peerweb={peerweb} notify={notify}/>
         </Animated>
              
       </section>
