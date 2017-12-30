@@ -1,9 +1,11 @@
 import React from 'react'
 
+import { createSite } from '../utilities'
+
 const Publish = ({write, handleChange, states}) => {
     let { author, wif, permlink, magnetLink } = states
     return (
-        <form className="pure-form pure-form-aligned" onSubmit={e => write(e, author, wif, permlink, magnetLink)}>
+        <form className="pure-form pure-form-aligned" onSubmit={e => createSite(e, author, wif, permlink, magnetLink)}>
             <div className="pure-u-1">
                 <input type='text' placeholder='author' value={author} onChange={e => handleChange(e, 'author')} />
                 <input type='text' placeholder='wif' value={wif} onChange={e => handleChange(e, 'wif')} />

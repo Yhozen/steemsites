@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import N , {notify} from 'react-notify-toast'
 import steem from 'steem'
 import PeerWeb from 'peerweb'
 
 import { Publish, Navigate } from './pages'
 import { AOS, Animated, Ribbon } from './utilities'
 
-import { buttons, forms } from './pure'
+import { buttons, forms } from './pure' // PURE CSS
 import './main.css'
 
 import headerBG from './images/header.jpg' // Cannot load without this image because it's cool af
@@ -51,6 +52,7 @@ export default class App extends Component {
       if (err) cb(err)
       let { magnetLink } = JSON.parse(result.json_metadata)
       log(magnetLink)
+      notify.show('Download starting')
       peerweb.render(magnetLink)
     })
     e.preventDefault()
@@ -72,7 +74,10 @@ export default class App extends Component {
         </Animated > 
         <div className='spacer' />
         <Animated animation='slide-right' offset='300'>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </Animated>
         <Animated animation='fade-zoom-in' duration='600' offset='350'>
           <Navigate goto={goto} handleChange={handleChange} weblink={weblink}/>
@@ -87,7 +92,7 @@ export default class App extends Component {
       <section id='sec2'>
             <h1></h1>
             <Animated>
-              <Publish write={write} handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
+              <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
             </Animated>
       </section>
       <section>
@@ -96,22 +101,8 @@ export default class App extends Component {
       </section>
         <button className='btn'>Login</button>
         <Ribbon size='100' />
+        <N/>
     </div>
     )
   }
-}
-
-function write ( e, author, wif, permlink, magnetLink ) {
-  let title = 'steemsites'
-  let body = 'testing'
-  let json_metadata = {
-    magnetLink,
-    app: 'steemsites'
-  }
-  const jsonMetadata = JSON.stringify(json_metadata)
-  steem.broadcast.comment(wif, 'garox', 'aprende-a-programar-or-web-mobile-server-y-desktop', author, permlink, title, body, jsonMetadata, function(err, result) {
-    if (err) throw err
-    log(result)
-  })
-  e.preventDefault()
 }
