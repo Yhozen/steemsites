@@ -43,7 +43,7 @@ export default class App extends Component {
 
   render () {
     let { author, wif, permlink, magnetLink, weblink, page } = this.state
-    const { goto, handleChange } = this
+    const { handleChange } = this
     return (
       <div className='App'>
       <section>
@@ -57,13 +57,12 @@ export default class App extends Component {
         </Animated > 
         <div className='spacer' />
         <Animated animation='slide-right' offset='300'>
-          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p> Steemsites is a new way to create and host static webpages. 
+            Powered by the Steem blockchain and WebTorrent now you can build websites that are totally decentralize and will be avaible as long as one person is sharing it.
+            Thus now we can have neutral and uncensored websites thanks to the community. You can access to a web via a weblink, which is the author/nameofthepage (Just like a Github repository). Try a weblink below (for example "garox/init") </p>
         </Animated>
         <Animated animation='fade-zoom-in' duration='600' offset='350'>
-          <Navigate goto={goto} handleChange={handleChange} weblink={weblink} peerweb={peerweb} notify={notify}/>
+          <Navigate handleChange={handleChange} weblink={weblink} peerweb={peerweb} notify={notify}/>
         </Animated>
              
       </section>
@@ -73,7 +72,12 @@ export default class App extends Component {
         <div className="skewed-up-right"></div>
       </section>
       <section id='sec2'>
-            <h1></h1>
+           <Animated animation='slide-right'>
+              <h1>Publish your own websites</h1>
+              <div className='spacer' />
+              <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. For now you will need to drop tha entire
+                folder to <a href="http://instant.io">instant</a> to seed the torrent and also to get the magnet link.  </p>
+            </Animated>
             <Animated>
               <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
             </Animated>
