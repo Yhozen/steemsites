@@ -95,7 +95,7 @@ export default class App extends Component {
         <div className="skewed-down-right"></div>
       </section>
         <button className='btn'>Login</button>
-        <Ribbon/>
+        <Ribbon size='100' />
     </div>
     )
   }
