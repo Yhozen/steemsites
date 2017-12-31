@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import N , {notify} from 'react-notify-toast'
-import PeerWeb from 'peerweb'
 
 import { Publish, Navigate } from './pages'
 import { AOS, Animated, Ribbon } from './utilities'
@@ -15,8 +14,6 @@ const images = {
   middle: 'https://lh3.googleusercontent.com/1iU7YVb6RpLMSbfiIzBL1tAII0rJIPREwyckqvMAUAg4cB0FHoUehL37dS_PBGeRZKx3c2my8VrRof32vv2wa13lW6gyJ0UQVk8-Crc=w4160-h2340-no',
   last: 'https://lh3.googleusercontent.com/rAKp9cydlNx1t2pIRiojbAI5MRUkrPeKFrQYBRfZP8CNePy3Ko85R2364zPHvjt1Bwp4SznfPjZiqp4=w4160-h2340-no'
 }
-
-const peerweb = new PeerWeb(true)
 
 export default class App extends Component {
   constructor (props) {
@@ -62,7 +59,7 @@ export default class App extends Component {
             Thus now we can have neutral and uncensored websites thanks to the community. You can access to a web via a weblink, which is the author/nameofthepage (Just like a Github repository). Try a weblink below (for example "garox/init") </p>
         </Animated>
         <Animated animation='fade-zoom-in' duration='600' offset='350'>
-          <Navigate handleChange={handleChange} weblink={weblink} peerweb={peerweb} notify={notify}/>
+          <Navigate handleChange={handleChange} weblink={weblink} notify={notify}/>
         </Animated>
              
       </section>
@@ -75,7 +72,7 @@ export default class App extends Component {
            <Animated animation='slide-right'>
               <h1>Publish your own websites</h1>
               <div className='spacer' />
-              <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. For now you will need to drop tha entire
+              <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. For now you will need to drop the entire
                 folder to <a href="http://instant.io">instant</a> to seed the torrent and also to get the magnet link.  </p>
             </Animated>
             <Animated>
