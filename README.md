@@ -1,4 +1,5 @@
 # SteemSites
+[![Travis](https://travis-ci.org/Yhozen/steemsites.svg?branch=master&style=flat-square)](https://yhozen.github.io/steemsites/)
 
 Make websites without a host nor a domain, powered by Steem blockchain and WebTorrent.
 webpack configuration forked from [React webpack boilerplate](https://github.com/vasanthk/react-es6-webpack-boilerplate)
