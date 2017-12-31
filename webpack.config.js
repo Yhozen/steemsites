@@ -51,6 +51,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:5000',
     'webpack/hot/dev-server',
+    'babel-polyfill',
     './src/index'
   ],
   output: {
