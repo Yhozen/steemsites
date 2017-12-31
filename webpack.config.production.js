@@ -55,38 +55,33 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['*', '.js']
   },
   devtool: 'source-map',
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loaders: ['babel-loader'],
         include: path.join(__dirname, 'src')
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
       }, { 
         test: /\.css$/, 
-        loader: "style-loader!css-loader",
-        options: {
-          minimize: true
-        }
+        use: [{
+            loader: "style-loader"
+          }, {
+            loader: "css-loader",
+            options: {
+              minimize: true
+              }
+          }]
       },{
         test: /\.(png|jp(e*)g|svg)$/,  
         loader: 'url-loader',

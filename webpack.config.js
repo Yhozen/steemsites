@@ -59,25 +59,25 @@ module.exports = {
     publicPath: '/static/'
   },
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['*', '.js']
   },
   devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['babel'],
+        loaders: ['babel-loader'],
         include: path.join(__dirname, 'src')
-      },{
-        test: /\.json$/,
-        loader: 'json-loader'
       }, { 
         test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+        use: [
+          "style-loader",
+          "css-loader"
+        ]
       }, {
         test: /\.(png|jp(e*)g|svg)$/,  
         loader: 'url-loader',
