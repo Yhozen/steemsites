@@ -1,7 +1,7 @@
 language: node_js
 node_js:
 - stable
-
+before_install: openssl aes-256-cbc -K $encrypted_50977c82cc25_key -iv $encrypted_50977c82cc25_iv -in deploy_key.enc -out deploy_key -d
 script: bash ./deploy.sh
 env:
   global:
