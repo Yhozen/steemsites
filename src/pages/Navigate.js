@@ -23,16 +23,22 @@ function goto (e, weblink, notify) {
 
 async function awaitMagnetLink (author, permlink, notify) {
     try {
-        const result = await getContent(author, permlink)
+        const { result, replies } = await getInParallel(author, permlink)
         let { magnetLink } = JSON.parse(result.json_metadata)
         if (magnetLink == undefined) throw 'No steemsites found'
         notify.show(`Starting to download '${result.title}'`)
-        const replies = await getContentReplies(author, permlink)
         const newer =  getNewVersion(replies, author)
         if (newer) magnetLink = JSON.parse(newer.json_metadata).magnetLink
         peerweb.render(magnetLink)
     } catch(err) {
         notify.show(`Couldn't download: ${err}`)
+    }
+}
+
+async function getInParallel (author, permlink) {
+    return {
+        result: await getContent(author, permlink),
+        replies: await getContentReplies(author, permlink)
     }
 }
 
