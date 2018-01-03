@@ -14,12 +14,12 @@ async function awaitMagnetLink (author, permlink, notify) {
         const { result, replies } = await getInParallel(author, permlink)
         let { magnetLink } = JSON.parse(result.json_metadata)
         if (magnetLink == undefined) throw 'No steemsites found'
-        notify.show(`Starting to download '${result.title}'`)
+        notify.show(`Starting to download '${result.title}'`, 'success')
         const newer =  getNewVersion(replies, author)
         if (newer) magnetLink = JSON.parse(newer.json_metadata).magnetLink
         peerweb.render(magnetLink)
     } catch(err) {
-        notify.show(`Couldn't download: ${err}`)
+        notify.show(`Couldn't download: ${err}`, 'error')
     }
 }
 

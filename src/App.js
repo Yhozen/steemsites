@@ -76,7 +76,7 @@ export default class App extends Component {
                 folder to <a href="http://instant.io">instant</a> to seed the torrent and also to get the magnet link.  </p>
             </Animated>
             <Animated>
-              <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} }/>
+              <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} } notify={notify}/>
             </Animated>
       </section>
       <section>
