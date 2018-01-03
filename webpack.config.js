@@ -46,12 +46,13 @@
 
 const webpack = require('webpack');
 const path = require('path');
+const regeneratorRuntime = require('regenerator-runtime/runtime.js')
 
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:5000',
     'webpack/hot/dev-server',
-    'babel-polyfill',
+    'regenerator-runtime/runtime.js',
     './src/index'
   ],
   output: {

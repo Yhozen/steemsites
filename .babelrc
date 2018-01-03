@@ -1,9 +1,8 @@
 {
-  "presets": [ ["env", { "modules": false }], "stage-0", "react"],
+  "presets": [ ["env", { "modules": false }], "react"],
   "env": {
       "development": {
           "plugins": [
-            "transform-react-inline-elements",
             ["react-transform", {
               "transforms": [{
                 "transform" : "react-transform-hmr",
@@ -12,6 +11,9 @@
           }]
         }]
       ]
+    },
+    "production": {
+      "plugins": ["transform-react-inline-elements"]
     }
   }
 }
