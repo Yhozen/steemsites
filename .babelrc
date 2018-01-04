@@ -1,5 +1,9 @@
 {
-  "presets": [ ["env", { "modules": false }], "react"],
+  "presets": [ ["env", {
+    "modules": false,
+    "debug": true
+    }],
+  "react"],
   "env": {
       "development": {
           "plugins": [
