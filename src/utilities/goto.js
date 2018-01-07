@@ -1,6 +1,8 @@
 import steem from 'steem'
 import PeerWeb from 'peerweb'
 
+steem.api.setOptions({ url: 'wss://steemd.steemitstage.com' })
+	
 const peerweb = new PeerWeb(true)
 
 function goto (e, weblink, notify) {
