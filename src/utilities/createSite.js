@@ -21,13 +21,12 @@ export default createSite
 async function shouldUpdate (author, permlink, data, notify) {
     try {
         const content = await getContent(author, permlink)
-        const { title, body, jsonMetadata, wif, author } = data
         if (content) {
             const upPermlink =`update-${permlink}-${Date.now()}` 
-            await comment(wif, author, permlink, upPermlink, data)
+            await comment( author, permlink, upPermlink, data )
             notify.show('Updated', 'success')
         } else {
-           await comment(wif, '', 'steemsites',  permlink, data)
+           await comment( '', 'steemsites',  permlink, data )
            notify.show('Site added', 'success')
         }
     } catch (err) {
