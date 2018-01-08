@@ -14,7 +14,7 @@ function goto (e, weblink, notify) {
 async function awaitMagnetLink (author, permlink, notify) {
     try {
         const { result, replies } = await getInParallel(author, permlink)
-        let { magnetLink } = JSON.parse(result.json_metadata)
+        let { magnetLink } = JSON.parse(result.json_metadata) // eslint-disable-next-line
         if (magnetLink == undefined) throw 'No steemsites found'
         notify.show(`Starting to download '${result.title}'`, 'success')
         const newer =  getNewVersion(replies, author)
@@ -34,7 +34,7 @@ async function getInParallel (author, permlink) {
 
 function getNewVersion (replies, author) {
    const toReturn = replies.filter(reply => {
-       return reply.author == author // add a check for json_metadata later
+       return reply.author === author // add a check for json_metadata later
    })
    return toReturn[toReturn.length -1]
 }
@@ -42,7 +42,7 @@ function getNewVersion (replies, author) {
 function getContent (author, permlink) {
     return new Promise((resolve,reject) => {
         steem.api.getContent(author, permlink, (err, response) => {
-            if (err) return reject(err)
+            if (err) return reject(err) // eslint-disable-next-line
             if (response.id == 0) return reject('Bad permlink')
             resolve(response)
         })

@@ -38,7 +38,7 @@ async function shouldUpdate (author, permlink, data, notify) {
 function getContent (author, permlink) {
     return new Promise((resolve,reject) => {
         steem.api.getContent(author, permlink, (err, response) => {
-            if (err) return reject(err)
+            if (err) return reject(err) // eslint-disable-next-line
             if (response.id == 0) return resolve(false)
             resolve(response)
         })

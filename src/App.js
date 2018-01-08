@@ -4,16 +4,10 @@ import N , {notify} from 'react-notify-toast'
 import { Publish, Navigate } from './pages'
 import { AOS, Animated, Ribbon } from './utilities'
 
-import { buttons, forms } from './pure' // PURE CSS
+import './pure' // PURE CSS
 import './main.css'
 
-import headerBG from './images/header.jpg' // Cannot load without this image because it's cool af
-
-const images = {
-  header: headerBG,
-  middle: 'https://lh3.googleusercontent.com/1iU7YVb6RpLMSbfiIzBL1tAII0rJIPREwyckqvMAUAg4cB0FHoUehL37dS_PBGeRZKx3c2my8VrRof32vv2wa13lW6gyJ0UQVk8-Crc=w4160-h2340-no',
-  last: 'https://lh3.googleusercontent.com/rAKp9cydlNx1t2pIRiojbAI5MRUkrPeKFrQYBRfZP8CNePy3Ko85R2364zPHvjt1Bwp4SznfPjZiqp4=w4160-h2340-no'
-}
+import images from './images'
 
 export default class App extends Component {
   constructor (props) {
@@ -39,12 +33,12 @@ export default class App extends Component {
   }
 
   render () {
-    let { author, wif, permlink, magnetLink, weblink, page } = this.state
+    let { author, wif, permlink, magnetLink, weblink } = this.state
     const { handleChange } = this
     return (
       <div className='App'>
       <section>
-        <img className="pure-img" src={images.header}/>
+        <img className="pure-img" src={images.header} alt="header"/>
         <div className="skewed-up-left"></div>
       </section>
       <section id='sec2'>
@@ -64,7 +58,7 @@ export default class App extends Component {
              
       </section>
       <section>
-      <img className="pure-img" src={images.middle}/>
+      <img className="pure-img" src={images.middle} alt="middle section background"/>
         <div className="skewed-down-right"></div>
         <div className="skewed-up-right"></div>
       </section>
@@ -80,7 +74,7 @@ export default class App extends Component {
             </Animated>
       </section>
       <section>
-      <img className="pure-img" src={images.last}/>
+      <img className="pure-img" src={images.last} alt="last section background"/>
         <div className="skewed-down-right"></div>
       </section>
         <button className='btn'>Login</button>
