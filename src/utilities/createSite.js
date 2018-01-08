@@ -10,7 +10,7 @@ function createSite (e, author, wif, permlink, magnetLink, notify)  {
     const authorLC = author.toLowerCase()
     const permlinkLC = permlink.toLowerCase()
     const jsonMetadata = JSON.stringify(json_metadata)
-    const data = {jsonMetadata, body, title, wif}
+    const data = {jsonMetadata, body, title, wif, author: authorLC}
     shouldUpdate(authorLC, permlinkLC, data, notify)
     e.preventDefault()
 }
@@ -21,13 +21,13 @@ export default createSite
 async function shouldUpdate (author, permlink, data, notify) {
     try {
         const content = await getContent(author, permlink)
-        const { title, body, jsonMetadata, wif } = data
+        const { title, body, jsonMetadata, wif, author } = data
         if (content) {
             const upPermlink =`update-${permlink}-${Date.now()}` 
-            await comment(wif, author, permlink, author, upPermlink, title, body, jsonMetadata)
+            await comment(wif, author, permlink, upPermlink, data)
             notify.show('Updated', 'success')
         } else {
-           await comment(wif, '', 'steemsites', author, permlink, title, body, jsonMetadata)
+           await comment(wif, '', 'steemsites',  permlink, data)
            notify.show('Site added', 'success')
         }
     } catch (err) {
@@ -44,7 +44,8 @@ function getContent (author, permlink) {
         })
     })
 }
-function comment (wif, namespace, permlink, author, upPermlink, title, body, jsonMetadata) {
+function comment ( namespace, permlink, upPermlink, data) {
+    const { title, body, jsonMetadata, wif, author } = data
     return new Promise((resolve,reject) => {
         steem.broadcast.comment(wif, namespace, permlink, author, upPermlink, title, body, jsonMetadata, (err, response) => {
             if (err) return reject(err)
