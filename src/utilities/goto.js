@@ -1,7 +1,3 @@
-import steem from 'steem'
-
-steem.api.setOptions({ url: 'wss://steemd.steemitstage.com' })
-
 function goto (e, weblink, notify) {
     const [ author , permlink ] = weblink.toLowerCase().split('/')
     awaitMagnetLink(author, permlink, notify) 
@@ -10,7 +6,8 @@ function goto (e, weblink, notify) {
 
 async function awaitMagnetLink (author, permlink, notify) {
     try {
-        const { result, replies } = await getInParallel(author, permlink)
+        const { steem } =  await import('./steem')
+        const { result, replies } = await getInParallel(author, permlink, steem)
         let { magnetLink } = JSON.parse(result.json_metadata) // eslint-disable-next-line
         if (magnetLink == undefined) throw 'No steemsites found'
         notify.show(`Starting to download '${result.title}'`, 'success')
@@ -23,10 +20,10 @@ async function awaitMagnetLink (author, permlink, notify) {
     }
 }
 
-async function getInParallel (author, permlink) {
+async function getInParallel (author, permlink, steem) {
     return {
-        result: await getContent(author, permlink),
-        replies: await getContentReplies(author, permlink)
+        result: await getContent(author, permlink, steem),
+        replies: await getContentReplies(author, permlink, steem)
     }
 }
 
@@ -37,7 +34,7 @@ function getNewVersion (replies, author) {
    return toReturn[toReturn.length -1]
 }
 
-function getContent (author, permlink) {
+function getContent (author, permlink, steem) {
     return new Promise((resolve,reject) => {
         steem.api.getContent(author, permlink, (err, response) => {
             if (err) return reject(err) // eslint-disable-next-line
@@ -46,7 +43,7 @@ function getContent (author, permlink) {
         })
     })
 }
-function getContentReplies (author, permlink) {
+function getContentReplies (author, permlink, steem) {
     return new Promise((resolve,reject) => {
         steem.api.getContentReplies(author, permlink, (err, response) => {
             resolve(response)

@@ -1,3 +1,5 @@
 import PeerWeb from 'peerweb'
-const peerweb = new PeerWeb(process.env.NODE_ENV === 'development')
+import { isDev } from '../config'
+
+const peerweb = new PeerWeb(isDev)
 export { peerweb }

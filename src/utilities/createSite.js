@@ -1,5 +1,3 @@
-import steem from 'steem'
-
 function createSite (e, { author, wif, permlink, magnetLink }, notify)  {
     const title = 'steemsites'
     const body = 'BEST SITE EVER'
@@ -20,13 +18,14 @@ export default createSite
 
 async function shouldUpdate (author, permlink, data, notify) {
     try {
-        const content = await getContent(author, permlink)
+        const { steem } =  await import('./steem')
+        const content = await getContent(author, permlink, steem)
         if (content) {
             const upPermlink =`update-${permlink}-${Date.now()}` 
-            await comment( author, permlink, upPermlink, data )
+            await comment( author, permlink, upPermlink, data, steem )
             notify.show('Updated', 'success')
         } else {
-           await comment( '', 'steemsites',  permlink, data )
+           await comment( '', 'steemsites',  permlink, data, steem )
            notify.show('Site added', 'success')
         }
     } catch (err) {
@@ -34,7 +33,7 @@ async function shouldUpdate (author, permlink, data, notify) {
     }
 }
 
-function getContent (author, permlink) {
+function getContent (author, permlink, steem) {
     return new Promise((resolve,reject) => {
         steem.api.getContent(author, permlink, (err, response) => {
             if (err) return reject(err) // eslint-disable-next-line
@@ -43,7 +42,7 @@ function getContent (author, permlink) {
         })
     })
 }
-function comment ( namespace, permlink, upPermlink, data) {
+function comment ( namespace, permlink, upPermlink, data, steem) {
     const { title, body, jsonMetadata, wif, author } = data
     return new Promise((resolve,reject) => {
         steem.broadcast.comment(wif, namespace, permlink, author, upPermlink, title, body, jsonMetadata, (err, response) => {
