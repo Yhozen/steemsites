@@ -23,6 +23,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    import('./utilities/peerweb') // Download peerweb (async)
     AOS.init()
   }
 

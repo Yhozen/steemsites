@@ -16,8 +16,7 @@ async function awaitMagnetLink (author, permlink, notify) {
         notify.show(`Starting to download '${result.title}'`, 'success')
         const newer =  getNewVersion(replies, author)
         if (newer) magnetLink = JSON.parse(newer.json_metadata).magnetLink
-        const  { default: PeerWeb } =  await import('peerweb')
-        const peerweb = new PeerWeb(true)
+        const  { default: peerweb } =  await import('./peerweb')
         peerweb.render(magnetLink)
     } catch(err) {
         notify.show(`Couldn't download: ${err}`, 'error')
