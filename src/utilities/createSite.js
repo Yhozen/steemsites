@@ -1,6 +1,6 @@
 import steem from 'steem'
 
-function createSite (e, author, wif, permlink, magnetLink, notify)  {
+function createSite (e, { author, wif, permlink, magnetLink }, notify)  {
     const title = 'steemsites'
     const body = 'BEST SITE EVER'
     const json_metadata = {
