@@ -2,8 +2,8 @@ import React from 'react'
 
 import { createSite, Animated } from '../utilities'
 
-const Publish = ({ write, handleChange, states }) => {
-    let { author, wif, permlink, magnetLink } = states
+const Publish = ({ handleChange, states }) => {
+    let { author, wif, permlink, pageName } = states
     return (
     <section id='sec2'>
         <Animated animation='slide-right' offset="0">
@@ -13,16 +13,17 @@ const Publish = ({ write, handleChange, states }) => {
             folder to <a href="http://instant.io">instant</a> to seed the torrent and also to get the magnet link.  </p>
         </Animated>
         <Animated offset="0">
-            <form className="pure-form pure-form-aligned" onSubmit={e => createSite(e, { author, wif, permlink, magnetLink })}>
+            <form className="pure-form pure-form-aligned" onSubmit={e => createSite(e, states)}>
                 <div className="pure-u-1">
                     <input type='text' placeholder='author' value={author} onChange={e => handleChange(e, 'author')} />
                     <input type='text' placeholder='wif' value={wif} onChange={e => handleChange(e, 'wif')} />
                 </div>
                 <div className="pure-u-1">
                     <input type='text' placeholder='permlink' value={permlink} onChange={e => handleChange(e, 'permlink')} />
-                    <input type='text' placeholder='magnet link' value={magnetLink} onChange={e => handleChange(e, 'magnetLink')} />
+                    <input type='text' placeholder='name' value={pageName} onChange={e => handleChange(e, 'pageName')} />
                     <button type="submit" className="pure-button pure-button-primary">Publish</button>
                 </div>
+                <div id="dropTarget" />
             </form>
         </Animated>
     </section>

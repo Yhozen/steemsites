@@ -115,3 +115,10 @@ input[type=text]:focus{
     font-size: 20px;
     vertical-align: 0%;
 }
+
+#dropTarget {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}

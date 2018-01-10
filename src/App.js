@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import N from 'react-notify-toast'
+import dragDrop from 'drag-drop'
 
 import { Publish, Navigate } from './pages'
 import { AOS, Ribbon } from './utilities'
@@ -13,9 +14,10 @@ export default class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      magnetLink: '',
+      files: [],
       author: '',
       wif: '',
+      pageName: '',
       permlink: '',
       weblink: ''
     }
@@ -26,6 +28,7 @@ export default class App extends Component {
     AOS.init()
     import('./utilities/steem') // Download steem (async)
     import('./utilities/peerweb') // Download peerweb (async)
+    dragDrop('#dropTarget', files => this.setState({files}) )
   }
 
   handleChange (event, value) {
@@ -35,8 +38,9 @@ export default class App extends Component {
   }
 
   render () {
-    let { author, wif, permlink, magnetLink, weblink } = this.state
+    let { author, wif, permlink, files, weblink, pageName } = this.state
     const { handleChange } = this
+    console.log(this.state.files)
     return (
       <div className='App'>
       <section>
@@ -49,7 +53,7 @@ export default class App extends Component {
         <div className="skewed-down-right"></div>
         <div className="skewed-up-right"></div>
       </section>
-      <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} } />
+      <Publish handleChange={handleChange} states={ {author, wif, permlink, files, pageName} } />
       <section>
       <img className="pure-img" src={images.last} alt="last section background"/>
         <div className="skewed-down-right"></div>

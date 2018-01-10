@@ -1,16 +1,14 @@
 import { notify } from 'react-notify-toast'
 
-function createSite (e, { author, wif, permlink, magnetLink })  {
-    const title = 'steemsites'
-    const body = 'BEST SITE EVER'
-    const json_metadata = {
-      magnetLink,
+function createSite (e, { author, wif, permlink, files, pageName })  {
+    const title = pageName
+    const body = 'SECOND BEST SITE EVER'
+    const jsonMetadata = {
       app: 'steemsites'
     }
     const authorLC = author.toLowerCase()
     const permlinkLC = permlink.toLowerCase()
-    const jsonMetadata = JSON.stringify(json_metadata)
-    const data = {jsonMetadata, body, title, wif, author: authorLC}
+    const data = {jsonMetadata, body, title, wif, author: authorLC, files}
     shouldUpdate(authorLC, permlinkLC, data)
     e.preventDefault()
 }
@@ -21,6 +19,10 @@ export default createSite
 async function shouldUpdate (author, permlink, data) {
     try {
         const { steem } =  await import('./steem')
+        const { peerweb } =  await import('./peerweb')
+        const magnetLink = await peerweb.getMagnet(data.files)
+        data.jsonMetadata["magnetLink"] = magnetLink
+        data.jsonMetadata = JSON.stringify(data.jsonMetadata)
         const content = await getContent(author, permlink, steem)
         if (content) {
             const upPermlink =`update-${permlink}-${Date.now()}` 
