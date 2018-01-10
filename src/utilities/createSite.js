@@ -1,4 +1,6 @@
-function createSite (e, { author, wif, permlink, magnetLink }, notify)  {
+import { notify } from 'react-notify-toast'
+
+function createSite (e, { author, wif, permlink, magnetLink })  {
     const title = 'steemsites'
     const body = 'BEST SITE EVER'
     const json_metadata = {
@@ -9,14 +11,14 @@ function createSite (e, { author, wif, permlink, magnetLink }, notify)  {
     const permlinkLC = permlink.toLowerCase()
     const jsonMetadata = JSON.stringify(json_metadata)
     const data = {jsonMetadata, body, title, wif, author: authorLC}
-    shouldUpdate(authorLC, permlinkLC, data, notify)
+    shouldUpdate(authorLC, permlinkLC, data)
     e.preventDefault()
 }
 
 
 export default createSite
 
-async function shouldUpdate (author, permlink, data, notify) {
+async function shouldUpdate (author, permlink, data) {
     try {
         const { steem } =  await import('./steem')
         const content = await getContent(author, permlink, steem)

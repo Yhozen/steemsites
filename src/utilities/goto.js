@@ -1,10 +1,12 @@
-function goto (e, weblink, notify) {
+import { notify } from 'react-notify-toast'
+
+function goto (e, weblink) {
     const [ author , permlink ] = weblink.toLowerCase().split('/')
-    awaitMagnetLink(author, permlink, notify) 
+    awaitMagnetLink(author, permlink) 
     e.preventDefault()
 }
 
-async function awaitMagnetLink (author, permlink, notify) {
+async function awaitMagnetLink (author, permlink) {
     try {
         const { result, replies } = await getInParallel(author, permlink)
         let { magnetLink } = JSON.parse(result.json_metadata) // eslint-disable-next-line

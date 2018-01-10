@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import N , {notify} from 'react-notify-toast'
+import N from 'react-notify-toast'
 
 import { Publish, Navigate } from './pages'
-import { AOS, Animated, Ribbon } from './utilities'
+import { AOS, Ribbon } from './utilities'
 
 import './pure' // PURE CSS
 import './main.css'
@@ -43,13 +43,13 @@ export default class App extends Component {
         <img className="pure-img" src={images.header} alt="header"/>
         <div className="skewed-up-left"></div>
       </section>
-      <Navigate handleChange={handleChange} weblink={weblink} notify={notify}/>
+      <Navigate handleChange={handleChange} weblink={weblink} />
       <section>
       <img className="pure-img" src={images.middle} alt="middle section background"/>
         <div className="skewed-down-right"></div>
         <div className="skewed-up-right"></div>
       </section>
-      <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} } notify={notify}/>
+      <Publish handleChange={handleChange} states={ {author, wif, permlink, magnetLink} } />
       <section>
       <img className="pure-img" src={images.last} alt="last section background"/>
         <div className="skewed-down-right"></div>

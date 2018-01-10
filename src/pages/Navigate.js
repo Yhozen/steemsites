@@ -2,7 +2,7 @@ import React from 'react'
 
 import { goto, Animated } from '../utilities'
 
-const Navigate = ({ notify, handleChange, weblink }) => (
+const Navigate = ({ handleChange, weblink }) => (
     <section id='sec2'>
         <Animated>
             <h1>STEEMSITES</h1>
@@ -15,7 +15,7 @@ const Navigate = ({ notify, handleChange, weblink }) => (
             Thus now we can have neutral and uncensored websites thanks to the community. You can access to a web via a weblink, which is the author/nameofthepage (Just like a Github repository). Try a weblink below (for example "garox/init") </p>
         </Animated>
         <Animated animation='fade-zoom-in' duration='600' offset='350'>
-            <form className="pure-form" onSubmit={e => goto(e, weblink, notify)}>
+            <form className="pure-form" onSubmit={e => goto(e, weblink)}>
                 <div className="pure-u-1">
                     <input type='text' placeholder='write here your weblink to start' value={weblink} onChange={e => handleChange(e, 'weblink')} />
                     <button type="submit" className="pure-button pure-button-primary">Go!</button>
