@@ -54,9 +54,8 @@ export default class App extends Component {
       <img className="pure-img" src={images.last} alt="last section background"/>
         <div className="skewed-down-right"></div>
       </section>
-        <button className='btn'>Login</button>
-        <Ribbon size='100' />
-        <N/>
+      <Ribbon size='100' />
+      <N/>
     </div>
     )
   }

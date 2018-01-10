@@ -6,13 +6,13 @@ const Publish = ({ write, handleChange, states }) => {
     let { author, wif, permlink, magnetLink } = states
     return (
     <section id='sec2'>
-        <Animated animation='slide-right'>
+        <Animated animation='slide-right' offset="0">
             <h1>Publish your own websites</h1>
             <div className='spacer' />
             <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. For now you will need to drop the entire
             folder to <a href="http://instant.io">instant</a> to seed the torrent and also to get the magnet link.  </p>
         </Animated>
-        <Animated>
+        <Animated offset="0">
             <form className="pure-form pure-form-aligned" onSubmit={e => createSite(e, { author, wif, permlink, magnetLink })}>
                 <div className="pure-u-1">
                     <input type='text' placeholder='author' value={author} onChange={e => handleChange(e, 'author')} />
