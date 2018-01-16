@@ -38,9 +38,8 @@ export default class App extends Component {
   }
 
   render () {
-    let { author, wif, permlink, files, weblink, pageName } = this.state
-    const { handleChange } = this
-    console.log(this.state.files)
+    const { handleChange, state : { author, wif, permlink, files, weblink, pageName } } = this
+    console.log(files)
     return (
       <div className='App'>
       <section>
