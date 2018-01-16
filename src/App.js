@@ -28,7 +28,7 @@ export default class App extends Component {
     AOS.init()
     import('./utilities/steem') // Download steem (async)
     import('./utilities/peerweb') // Download peerweb (async)
-    dragDrop('#dropTarget', files => this.setState({files}) )
+    dragDrop('body', files => this.setState({files}) )
   }
 
   handleChange (event, value) {

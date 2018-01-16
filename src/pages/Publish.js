@@ -3,7 +3,7 @@ import React from 'react'
 import { createSite, Animated } from '../utilities'
 
 const Publish = ({ handleChange, states }) => {
-    let { author, wif, permlink, pageName } = states
+    let { author, wif, permlink, files, pageName } = states
     return (
     <section id='sec2'>
         <Animated animation='slide-right' offset="0">
@@ -23,7 +23,7 @@ const Publish = ({ handleChange, states }) => {
                     <input type='text' placeholder='name' value={pageName} onChange={e => handleChange(e, 'pageName')} />
                     <button type="submit" className="pure-button pure-button-primary">Publish</button>
                 </div>
-                <div id="dropTarget" />
+                <div> <p>Drop files anywhere - {files.length} files will be added </p>  </div>
             </form>
         </Animated>
     </section>
