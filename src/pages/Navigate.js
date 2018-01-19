@@ -1,14 +1,26 @@
 import React from 'react'
 
 import { goto, Animated } from '../utilities'
+import { icon } from '../images'
+
+const iconStyle = { 
+    height: '105px',
+    width: 'auto',
+    display: 'block',
+    margin: '0 auto',
+    animationName: 'spin',
+    animationDuration: '5s',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'ease'
+}
 
 const Navigate = ({ handleChange, weblink }) => (
     <section id='sec2'>
+        <img src={icon} style={iconStyle} alt='logo'/>
         <Animated>
             <h1>STEEMSITES</h1>
             <h2>Decentralize the web.</h2>
-        </Animated > 
-        <div className='spacer' />
+        </Animated >
         <Animated animation='slide-right' offset='300'>
             <p> Steemsites is a new way to create, host and access to webpages.
             Powered by the Steem blockchain and WebTorrent now you can build websites that are totally decentralize and will be avaible as long as one person is sharing it.
