@@ -10,7 +10,7 @@ const delays = [ 2, 3, 4,
 const Loading = () => (
   <div className="load-container">
     <div className="sk-cube-grid">
-      {delays.map(delay => <div className="sk-cube" style={{ animationDelay: `.${delay}s`}}/>)}
+      {delays.map(delay => <div className="sk-cube" key={Math.random()} style={{ animationDelay: `.${delay}s`}}/>)}
     </div>
   </div>
 )
