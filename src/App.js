@@ -25,7 +25,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    AOS.init()
+    AOS.init({
+      disable: 'mobile'
+    })
     import('./utilities/steem') // Download steem (async)
     import('./utilities/peerweb') // Download peerweb (async)
     dragDrop('body', files => this.setState({files}) )
