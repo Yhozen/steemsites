@@ -6,7 +6,9 @@ import '../utilities/icon.css'
 
 const Navigate = ({ handleChange, weblink }) => (
     <section id='sec2'>
-        <img src={icon} className='icon' alt='logo'/>
+        <Animated animation='fade'> 
+            <img src={icon} className='icon' alt='logo'/>
+        </Animated>
         <Animated>
             <h1>STEEMSITES</h1>
             <h2>Decentralize the web.</h2>
