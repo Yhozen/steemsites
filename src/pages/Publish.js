@@ -9,8 +9,8 @@ const Publish = ({ handleChange, states }) => {
         <Animated animation='slide-right' offset="0">
             <h1>Publish your own websites</h1>
             <div className='spacer' />
-            <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. For now you will need to drop the entire
-            folder to <a href="http://instant.io">instant</a> to seed the torrent and also to get the magnet link.  </p>
+            <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. Just drop the folder here to start fast. 
+                Also can seed the page in <a href="http://instant.io">instant</a> or with some App that support torrent over WebRTC (see [WebTorrent Desktop](https://webtorrent.io/desktop/) (recommended) or [Vuze](https://www.vuze.com))  </p>
         </Animated>
         <Animated offset="0">
             <form className="pure-form pure-form-aligned" onSubmit={e => createSite(e, states)}>
