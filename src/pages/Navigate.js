@@ -2,21 +2,13 @@ import React from 'react'
 
 import { goto, Animated } from '../utilities'
 import { icon } from '../images'
-
-const iconStyle = { 
-    height: '105px',
-    width: 'auto',
-    display: 'block',
-    margin: '0 auto',
-    animationName: 'spin',
-    animationDuration: '5s',
-    animationIterationCount: 'infinite',
-    animationTimingFunction: 'ease'
-}
+import '../utilities/icon.css'
 
 const Navigate = ({ handleChange, weblink }) => (
     <section id='sec2'>
-        <img src={icon} style={iconStyle} alt='logo'/>
+        <Animated animation='fade'> 
+            <img src={icon} className='icon' alt='logo'/>
+        </Animated>
         <Animated>
             <h1>STEEMSITES</h1>
             <h2>Decentralize the web.</h2>

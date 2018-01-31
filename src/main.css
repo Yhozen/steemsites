@@ -123,11 +123,15 @@ input[type=text]:focus{
     border: 1px solid #aaaaaa;
 }
 
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
+@media only screen and (max-width: 500px) {
+    section h1 {
+        font-size: 45px;
     }
-    to {
-        transform:rotate(360deg);
+    section h2 {
+        font-size: 24px;
+    }
+    #sec2 {
+        padding: 50px;
+        height: 150vh;
     }
 }
