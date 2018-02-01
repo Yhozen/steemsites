@@ -29,7 +29,6 @@ export default class App extends Component {
     import('./utilities/peerweb') // Download peerweb (async)
     dragDrop('body', files => this.setState({files}) )
     AOS.init({
-      disable: 'mobile',
       startEvent: 'load'
     })
   }
