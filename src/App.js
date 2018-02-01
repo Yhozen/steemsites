@@ -3,7 +3,7 @@ import N from 'react-notify-toast'
 import dragDrop from 'drag-drop'
 
 import { Publish, Navigate } from './pages'
-import { AOS, Ribbon } from './utilities'
+import { Ribbon } from './utilities'
 
 import './pure' // PURE CSS
 import './main.css'
@@ -22,12 +22,6 @@ export default class App extends Component {
       weblink: ''
     }
     this.handleChange = this.handleChange.bind(this)
-  }
-
-  componentWillMount () {
-    AOS.init({
-      disable: 'mobile'
-    })
   }
 
   componentDidMount () {

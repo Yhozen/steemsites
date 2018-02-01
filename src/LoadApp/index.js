@@ -1,5 +1,6 @@
 import Loadable from 'react-loadable'
 import React from 'react'
+import { AOS } from '../utilities'
 
 import './LoadApp.css'
 
@@ -21,7 +22,12 @@ const LoadableComponent = Loadable({
 })
 
 export default class LoadApp extends React.Component {
-  render() {
+  componentDidMount () {
+    AOS.init({
+      disable: 'mobile'
+    })
+  }
+  render () {
     return <LoadableComponent/>
   }
 }
