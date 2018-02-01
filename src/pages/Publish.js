@@ -10,7 +10,8 @@ const Publish = ({ handleChange, states }) => {
             <h1>Publish your own websites</h1>
             <div className='spacer' />
             <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. Just drop the folder here to start fast. 
-                Also can seed the page in <a href="http://instant.io">instant</a> or with some App that support torrent over WebRTC (see <a href="https://webtorrent.io/desktop/" >WebTorrent Desktop</a> (recommended) or <a href="https://www.vuze.com" >Vuze</a>)  </p>
+                Also can seed the page in <a href="http://instant.io">instant</a> or with some App that support torrent over WebRTC 
+                (see <a href="https://webtorrent.io/desktop/" >WebTorrent Desktop</a> (recommended) or <a href="https://www.vuze.com" >Vuze</a>)  </p>
         </Animated>
         <Animated offset="0">
             <form className="pure-form pure-form-aligned" onSubmit={e => createSite(e, states)}>
