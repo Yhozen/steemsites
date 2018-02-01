@@ -23,16 +23,15 @@ export default class App extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
   }
-  componentWillMount () {
-    AOS.init({
-      disable: 'mobile',
-      startEvent: 'load'
-    })
-  }
+
   componentDidMount () {
     import('./utilities/steem') // Download steem (async)
     import('./utilities/peerweb') // Download peerweb (async)
     dragDrop('body', files => this.setState({files}) )
+    AOS.init({
+      disable: 'mobile',
+      startEvent: 'load'
+    })
   }
 
   handleChange (event, value) {
