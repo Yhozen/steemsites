@@ -1,16 +1,15 @@
 import React from 'react'
 
-import { createSite, Animated } from '../utilities'
+import { createSite, Animated, i18next } from '../utilities'
 
 const Publish = ({ handleChange, states }) => {
     let { author, wif, permlink, files, pageName } = states
     return (
     <section id='sec2'>
         <Animated animation='slide-right' offset="0">
-            <h1>Publish your own websites</h1>
+            <h1>{i18next.t('publishTitle')}</h1>
             <div className='spacer' />
-            <p> All you need is a steem account, the corresponding posting wif, a name and the folder with the content. Just drop the folder here to start fast. 
-                Also can seed the page in <a href="http://instant.io">instant</a> or with some App that support torrent over WebRTC 
+            <p> {i18next.t('pPublishOne')} <a href="http://instant.io">instant</a> {i18next.t('pPublishTwo')}
                 (see <a href="https://webtorrent.io/desktop/" >WebTorrent Desktop</a> (recommended) or <a href="https://www.vuze.com" >Vuze</a>)  </p>
         </Animated>
         <Animated offset="0">
@@ -24,7 +23,7 @@ const Publish = ({ handleChange, states }) => {
                     <input type='text' placeholder='name' value={pageName} onChange={e => handleChange(e, 'pageName')} />
                     <button type="submit" className="pure-button pure-button-primary">Publish</button>
                 </div>
-                <div> <p>Drop files anywhere - {files.length} files will be added </p>  </div>
+                <div> <p>{i18next.t('dropPublishOne')} - {files.length} {i18next.t('dropPublishTwo')} </p>  </div>
             </form>
         </Animated>
     </section>
