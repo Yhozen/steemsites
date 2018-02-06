@@ -123,6 +123,22 @@ input[type=text]:focus{
     border: 1px solid #aaaaaa;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+  }
+.flex-1 {
+    flex: 1;
+    margin: 0 10px;
+}
+
+#list {
+    height: auto;
+    min-height: 252px;
+    background: red;
+}
+  
+
 @media only screen and (max-width: 500px) {
     section h1 {
         font-size: 45px;

@@ -20,7 +20,7 @@ async function shouldUpdate (author, permlink, data) {
     try {
         const { steem } =  await import('./steem')
         const { peerweb } =  await import('./peerweb')
-        const magnetLink = await peerweb.getMagnet(data.files)
+        const magnetLink = await peerweb.getMagnet(data.files, `${author}/${permlink}`)
         data.jsonMetadata["magnetLink"] = magnetLink
         data.jsonMetadata = JSON.stringify(data.jsonMetadata)
         const content = await getContent(author, permlink, steem)

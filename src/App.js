@@ -19,7 +19,8 @@ export default class App extends Component {
       wif: '',
       pageName: '',
       permlink: '',
-      weblink: ''
+      weblink: '',
+      sites: null
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -30,6 +31,7 @@ export default class App extends Component {
   componentDidMount () {
     import('./utilities/steem') // Download steem (async)
     import('./utilities/peerweb') // Download peerweb (async)
+    .then(({peerweb}) => peerweb.onChange( data => this.setState({ sites: data }) ))
     dragDrop('body', files => this.setState({files}) )
     AOS.init({
       disable: 'mobile',
@@ -44,8 +46,7 @@ export default class App extends Component {
   }
 
   render () {
-    const { handleChange, state : { author, wif, permlink, files, weblink, pageName } } = this
-    console.log(files)
+    const { handleChange, state : { author, wif, permlink, files, weblink, pageName, sites } } = this
     return (
       <div className='App'>
       <section>
@@ -58,7 +59,7 @@ export default class App extends Component {
         <div className="skewed-down-right"></div>
         <div className="skewed-up-right"></div>
       </section>
-      <Publish handleChange={handleChange} states={ {author, wif, permlink, files, pageName} } />
+      <Publish handleChange={handleChange} states={ {author, wif, permlink, files, pageName, sites} } />
       <section>
       <img className="pure-img" src={images.last} alt="last section background"/>
         <div className="skewed-down-right"></div>

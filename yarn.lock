@@ -1209,7 +1209,7 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-buffer@^5.0.6:
+buffer@^5.0.6, buffer@^5.0.8:
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.0.8.tgz#84daa52e7cf2fa8ce4195bc5cf0f7809e0930b24"
   dependencies:
@@ -4732,11 +4732,12 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-peerweb@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/peerweb/-/peerweb-0.1.6.tgz#ec95d1c833ef5833ff8b26dd2af5ef209e25ae86"
+peerweb@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/peerweb/-/peerweb-0.2.7.tgz#80ada6f6db60e62c08b0251a56744ab67f25c895"
   dependencies:
     async "^2.6.0"
+    buffer "^5.0.8"
 
 performance-now@^0.2.0:
   version "0.2.0"
