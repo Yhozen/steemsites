@@ -25,13 +25,13 @@ const publish = {
 const navigate = {
     en: {
         'navigateSub': 'Decentralize the web.',
-        'navigateText': `Steemsites is a new way to create, host and access to webpages.
+        'navigateText': `Steemsites is a new way to create, host and access to webpages. <br>
                     Powered by the Steem blockchain and WebTorrent now you can build websites that are totally decentralize and will be avaible as long as one person is sharing it.
-                    Thus now we can have neutral and uncensored websites thanks to the community. You can access to a web via a weblink, which is the author/nameofthepage (Just like a Github repository). Try a weblink below (for example "garox/init")`
+                    Thus now we can have neutral and uncensored websites thanks to the community. You can access to a web via a weblink, which is the author/nameofthepage (Just like a Github repository). <br>Try a weblink below (for example "garox/init")`
     }, es: {
         'navigateSub': 'Descentraliza la web.',
-        'navigateText': `Steemsites es una nueva forma de crear, hostear y acceder a páginas webs. Gracias al Steem blockchain y WebTorrent ahora puedes generar páginas totalmente descentralizadas y
-        que van a estar disponibles siempre que al menos una persona la este compartiendo. Por consiguiente, una web neutral y no censurada gracias a la propia comunidad. Puedes acceder a una página via un weblink, que es autor/nombredelapagina (Como un repository de GitHub). Prueba un weblink abajo (por ejemplo "garox/init").`
+        'navigateText': `Steemsites es una nueva forma de crear, hostear y acceder a páginas webs. <br> Gracias al Steem blockchain y WebTorrent ahora puedes generar páginas totalmente descentralizadas y
+        que van a estar disponibles siempre que al menos una persona la este compartiendo. Por consiguiente, una web neutral y no censurada gracias a la propia comunidad. Puedes acceder a una página via un weblink, que es autor/nombredelapagina (Como un repository de GitHub).<br>Prueba un weblink abajo (Ejemplo "garox/init").`
     }
 }
 
