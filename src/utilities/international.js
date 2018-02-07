@@ -17,7 +17,7 @@ const publish = {
         'dropPublishOne': 'Suelta los archivos en cualquier parte',
         'dropPublishTwo': 'archivos van a ser agregados',
         'discoverTitle': 'Descubre sitios',
-        'discoverText': 'Prueba alguno clickeando sobre él, estos sos compartidos como rumor entre cada peer de la red',
+        'discoverText': 'Prueba alguno clickeando sobre él, estos son compartidos como rumor entre cada peer de la red',
         'discoverEmpty': 'Ningún sitio encontrado aún'
     }
 }
