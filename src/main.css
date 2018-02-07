@@ -30,7 +30,7 @@ section h1 {
     letter-spacing: 0;
     font-weight: 400;
     text-align: center;
-    margin: 15px 0;
+    margin: 5px 0 0;
 }
 #section-1 h1 {
     letter-spacing: 9px;
@@ -41,7 +41,8 @@ section h2 {
     letter-spacing: 0;
     font-weight: 300;
     text-align: center;
-    margin: 15px 0;
+    margin: 2px 0;
+    color: rgba(0, 0, 0, 0.80);
 }
 section p {
     font-family: Helvetica, Verdana, sans-serif;
