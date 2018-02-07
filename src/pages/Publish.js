@@ -2,11 +2,30 @@ import React from 'react'
 
 import { createSite, Animated, i18next, getList } from '../utilities'
 
+const getDiscover = sites => {
+    return (
+        <div className="flex-1">
+            <Animated offset='0'>
+                <h1>{i18next.t('discoverTitle')}</h1>
+                <div className='spacer' />
+                <p>{i18next.t('discoverText')}</p>
+            </Animated>
+            <Animated offset='50'>
+                <div id='list'>
+                    <ul>
+                        {getList(sites)}
+                    </ul>
+                </div>
+            </Animated>
+        </div>
+    )
+}
+
 const Publish = ({ handleChange, states : { author, wif, permlink, files, pageName, sites } }) => {
     return (
-    <section id='sec2'>
+    <section className='content-section' id='section-2'>
         <div className="flex-container">
-        <div className="flex-1">
+        <div className="flex-1 unmobile">
             <Animated animation='slide-right' offset="0">
                 <h1>{i18next.t('publishTitle')}</h1>
                 <div className='spacer' />
@@ -28,18 +47,7 @@ const Publish = ({ handleChange, states : { author, wif, permlink, files, pageNa
                 </form>
             </Animated>
         </div>
-            <div className="flex-1">
-            <Animated offset='0'>
-                <h1>{i18next.t('discoverTitle')}</h1>
-                <div className='spacer' />
-                <p>{i18next.t('discoverText')}</p>
-            </Animated>
-            <div id='list'>
-            <ul>
-                {getList(sites)}
-            </ul>
-            </div>
-            </div>
+        {getDiscover(sites)}
         </div>
     </section>
     )

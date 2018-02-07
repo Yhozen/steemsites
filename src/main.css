@@ -1,6 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Lora:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans);
 :root {
     --bg-color: white;
+    --text-color: rgba(0, 0, 0, 0.87);
   }
   
 
@@ -35,15 +36,29 @@ section h2 {
     margin: 15px 0;
 }
 section p {
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     text-align: justify;
+    color: var(--text-color);
 }
-#sec2 {
-    padding: 50px 150px;
+.content-section {
+    padding: 20px 10vw;
     box-sizing: border-box;
+}
+#section-2 {
+    padding: 20px 0;
+}
+#section-2 .flex-1 {
+    padding: 20px 5vw;
 }
 .spacer {
     margin: 30px auto;
+}
+.spacer-m {
+    margin: 45px auto;
+}
+.spacer-l {
+    margin: 70px auto;
 }
 .btn {
     background-color: #59ABE3;
@@ -135,9 +150,36 @@ input[type=text]:focus{
 #list {
     height: auto;
     min-height: 252px;
-    background: red;
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
-  
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+   
+li {
+    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    font-size: 17px;
+    border-bottom: 1px solid #ccc;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+li:last-child {
+    border: none;
+}
+   
+li:hover {
+    cursor: pointer;
+    font-size: 22px;
+    background: #f6f6f6;
+  }
 
 @media only screen and (max-width: 500px) {
     section h1 {
@@ -146,8 +188,16 @@ input[type=text]:focus{
     section h2 {
         font-size: 24px;
     }
-    #sec2 {
-        padding: 50px;
+    section p {
+        font-size: 16px;
+    }
+    .spacer-l, .spacer-m {
+        margin: 20px;
+    }
+    .content-section {
         height: 150vh;
+    }
+    .unmobile {
+        display: none;
     }
 }
