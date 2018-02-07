@@ -8,7 +8,8 @@ const publish = {
         'dropPublishOne': 'Drop files anywhere',
         'dropPublishTwo': 'files will be added',
         'discoverTitle': 'Discover sites',
-        'discoverText': 'Click one to try it'
+        'discoverText': 'Click one to try it',
+        'discoverEmpty': 'No site discover yet'
     }, es: {
         "publishTitle": "Publica tu propio sitio web",
         "pPublishOne": 'Todo lo que necesitas es una cuenta de steem, su correspondiente WIF, un nombre y la carpeta con el contenido de la página. Simplemente arrastra la carpeta para empezar rápido. También puedes seedear la página en ',
@@ -16,7 +17,8 @@ const publish = {
         'dropPublishOne': 'Suelta los archivos en cualquier parte',
         'dropPublishTwo': 'archivos van a ser agregados',
         'discoverTitle': 'Descubre sitios',
-        'discoverText': 'Prueba alguno clickeando sobre él, estos sos compartidos como rumor entre cada peer de la red'
+        'discoverText': 'Prueba alguno clickeando sobre él, estos sos compartidos como rumor entre cada peer de la red',
+        'discoverEmpty': 'Ningún sitio encontrado aún'
     }
 }
 
