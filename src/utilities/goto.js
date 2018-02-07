@@ -9,7 +9,6 @@ function goto (e, weblink) {
 async function awaitMagnetLink (author, permlink) {
     try {
         const { result, replies } = await getInParallel(author, permlink)
-        console.info(result)
         let { magnetLink } = JSON.parse(result.json_metadata) // eslint-disable-next-line
         if (magnetLink == undefined) throw 'No steemsites found'
         notify.show(`Starting to download '${result.title}'`, 'success')
