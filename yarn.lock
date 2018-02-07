@@ -4732,9 +4732,9 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-peerweb@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/peerweb/-/peerweb-0.2.7.tgz#80ada6f6db60e62c08b0251a56744ab67f25c895"
+peerweb@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/peerweb/-/peerweb-0.2.8.tgz#44541b9b0928400c747c407b0392107320d035b6"
   dependencies:
     async "^2.6.0"
     buffer "^5.0.8"
