@@ -2,8 +2,13 @@
 :root {
     --bg-color: white;
     --text-color: rgba(0, 0, 0, 0.87);
-  }
-  
+    --link-color: #cd8e3e;
+    --input-border: #41a7a9; 
+    --button-color: #216572;
+}
+a {
+    color: var(--link-color);
+}
 
 body {
     background: var(--bg-color);
@@ -60,20 +65,11 @@ section p {
 .spacer-l {
     margin: 70px auto;
 }
-.btn {
-    background-color: #59ABE3;
-    font-size: 16px;
-    color: white;
-    padding: 10px 30px;    
-    border: none;
-    border-radius: 9px 27px;
-    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2), 0 4px 10px 0 rgba(0,0,0,0.19);
-    position: fixed;
-    right: 23px;
-    margin-top: 15px;
-    z-index: 997;
-    margin-right: 60px;
+
+.pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
+    background: var(--button-color);
 }
+
 input {
     margin: 11px;
 }
@@ -108,7 +104,7 @@ input {
 }
 input[type=text] {
     width:80%;
-    border:4px solid rgb(4, 89, 168);
+    border:4px solid var(--input-border);
     border-radius:5px;
     margin:8px;
     outline:none;
@@ -129,13 +125,6 @@ input[type=text]:focus{
 .pure-form button {
     font-size: 20px;
     vertical-align: 0%;
-}
-
-#dropTarget {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
 }
 
 .flex-container {
