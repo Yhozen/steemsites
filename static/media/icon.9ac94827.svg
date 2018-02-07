@@ -5,10 +5,10 @@
 <style type="text/css">
 	.st0{fill:#5BA4A6;}
 	.st1{fill:#C5904C;}
-	.st2{fill:none;stroke:#111200;stroke-width:65;stroke-miterlimit:10;}
-	.st3{fill:#F5E6BA;stroke:#111200;stroke-width:65;stroke-miterlimit:10;}
-	.st4{fill:none;stroke:#000000;stroke-width:65;stroke-miterlimit:10;}
-	.st5{fill:none;stroke:#B7EEF0;stroke-width:65;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#111200;stroke-width:150;stroke-miterlimit:10;}
+	.st3{fill:#F5E6BA;stroke:#111200;stroke-width:150;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#000000;stroke-width:150;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#B7EEF0;stroke-width:150;stroke-miterlimit:10;}
 </style>
 <polygon class="st0" points="620.1,8440.9 1313.1,9640.4 1385,9646.4 1462.9,9634.4 2068.1,7537.1 1954.3,7453.2 1906.4,7279.4 
 	1996.2,7159.6 2104.1,7123.6 2182,7135.6 3152.8,3779.9 3110.8,3749.9 642,8034.4 731.9,8124.3 761.8,8262.1 719.9,8388 "/>
