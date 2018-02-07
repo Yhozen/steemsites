@@ -43,7 +43,7 @@ const Publish = ({ handleChange, states : { author, wif, permlink, files, pageNa
                         <input type='text' placeholder='name' value={pageName} onChange={e => handleChange(e, 'pageName')} />
                         <button type="submit" className="pure-button pure-button-primary">Publish</button>
                     </div>
-                    <div> <p>{i18next.t('dropPublishOne')} - {files.length} {i18next.t('dropPublishTwo')} </p>  </div>
+                    <div> <p id="dropText">{i18next.t('dropPublishOne')} - {files.length} {i18next.t('dropPublishTwo')} </p>  </div>
                 </form>
             </Animated>
         </div>
