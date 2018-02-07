@@ -3,17 +3,16 @@
         transform:rotate(0deg);
     }
     to {
-        transform:rotate(360deg);
+        transform:rotate(720deg);
     }
 }
 
 .icon {
-    height: 105px;
+    height: 200px;
     width: auto;
     display: block;
     margin: 0 auto;
     animation-name: spin;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-duration: 3s;
     animation-timing-function: ease
 }
