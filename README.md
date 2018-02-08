@@ -6,8 +6,8 @@
 Make websites without a host nor a domain, powered by Steem blockchain and WebTorrent.
 You'll need a [steem account](https://steemit.com/pick_account)
 
-### Usage
-
+Usage
+------
 #### Access a site
 
 Just write a weblink and go
@@ -22,6 +22,12 @@ Go to [steemsites](https://steemsites.js.org) drop the folder with the content a
 
 To update the page it's the same process, just choose the same permlink that the previous version
 
-### Know issues
+Contributions
+------
+
+
+
+Know Issues
+------
 
 Some restrictive NATs won't let you download the pages (a TURN server would fix this)
