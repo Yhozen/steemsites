@@ -4,34 +4,24 @@
 ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 
 Make websites without a host nor a domain, powered by Steem blockchain and WebTorrent.
-webpack configuration forked from [React webpack boilerplate](https://github.com/vasanthk/react-es6-webpack-boilerplate)
+You'll need a [steem account](https://steemit.com/pick_account)
 
 ### Usage
 
-```
-npm install
-npm start
-Open http://localhost:5000
-```
-To get the magnet link simply go to instant.io and drop the whole folder that contain the webpage. An index.html is needed
+#### Access a site
+
+Just write a weblink and go
+
+#### Create or update a site
+
+First create a static page and put all the content in a folder. It's important to have an index.html
+
+Then go to steemit.com/@[USERNAME]/permissions and grab the private posting key (other keys could work but for security reasons it's better to use just the posting key so no one can steal your coins).  
+
+Go to [steemsites](https://steemsites.js.org) drop the folder with the content anywhere, go down to the publish section and put your username, posting key, permlink (will act like the link to your page), and a name. If you are ready press publish and you will see your page listed on discover sites.
+
+To update the page it's the same process, just choose the same permlink that the previous version
 
 ### Know issues
 
-Code inside a script tag won't be able to access to previous global variables without 'window'. 
-
-IE: 
-``` 
-$(document).ready(function(){
-  $('.parallax').parallax();
-}); 
-``` 
-won't work but
-    
-```
-var $ = window.$
-$(document).ready(function(){
-  $('.parallax').parallax();
-}); 
-```
-will work
-
+Some restrictive NATs won't let you download the pages (a TURN server would fix this)
