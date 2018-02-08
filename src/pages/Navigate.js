@@ -15,7 +15,7 @@ const Navigate = ({ handleChange, weblink }) => (
         </Animated >
         <div className='spacer-m' />
         <Animated animation='slide-right' offset='300'>
-            <p> {i18next.t('navigateText')} </p>
+            <p> {i18next.t('navigateText')} <br/>  {i18next.t('navigateTextOne')} <br/>  {i18next.t('navigateTextTwo')} </p>
         </Animated>
         <div className='spacer-l' />
         <Animated animation='fade-zoom-in' duration='600' offset='350'>

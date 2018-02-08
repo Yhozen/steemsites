@@ -33,7 +33,7 @@ const Publish = ({ handleChange, states : { author, wif, permlink, files, pageNa
                     (see <a href="https://webtorrent.io/desktop/" >WebTorrent Desktop</a> (recommended) or <a href="https://www.vuze.com" >Vuze</a>)  </p>
             </Animated>
             <Animated offset="50" animation='slide-right'>
-                <form className="pure-form" onSubmit={e => createSite(e, { author, wif, permlink, files, pageName})}>
+                <form className="pure-form publish" onSubmit={e => createSite(e, { author, wif, permlink, files, pageName})}>
                     <div className="pure-u-1">
                         <input type='text' placeholder='author' value={author} onChange={e => handleChange(e, 'author')} />
                         <input type='text' placeholder='wif' value={wif} onChange={e => handleChange(e, 'wif')} />
@@ -41,7 +41,7 @@ const Publish = ({ handleChange, states : { author, wif, permlink, files, pageNa
                     <div className="pure-u-1">
                         <input type='text' placeholder='permlink' value={permlink} onChange={e => handleChange(e, 'permlink')} />
                         <input type='text' placeholder='name' value={pageName} onChange={e => handleChange(e, 'pageName')} />
-                        <button type="submit" className="pure-button pure-button-primary">Publish</button>
+                        <button type="submit" id="publishButton" className="pure-button pure-button-primary">Publish</button>
                     </div>
                     <div> <p id="dropText">{i18next.t('dropPublishOne')} - {files.length} {i18next.t('dropPublishTwo')} </p>  </div>
                 </form>
