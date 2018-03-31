@@ -47,7 +47,7 @@ export default class App extends Component {
   }
 
   render () {
-    const { handleChange, state : { author, wif, permlink, files, weblink, pageName, sites } } = this
+    const { handleChange, state : { author, wif, permlink, files, weblink, pageName, sites, body } } = this
     return (
       <div className='App'>
       <section>
@@ -60,7 +60,7 @@ export default class App extends Component {
         <div className="skewed-down-right"></div>
         <div className="skewed-up-right"></div>
       </section>
-      <Publish handleChange={handleChange} states={ {author, wif, permlink, files, pageName, sites} } />
+      <Publish handleChange={handleChange} states={ {author, wif, permlink, files, pageName, sites, body} } />
       <section>
       <img className="pure-img" src={images.last} alt="last section background"/>
         <div className="skewed-down-right"></div>
