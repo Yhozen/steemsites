@@ -33,6 +33,7 @@ async function shouldUpdate (author, permlink, data) {
         }
     } catch (err) {
         notify.show(`Couldn't add: ${err}`, 'error')
+        console.error(err)
     }
 }
 
