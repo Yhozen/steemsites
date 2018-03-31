@@ -20,6 +20,7 @@ export default class App extends Component {
       pageName: '',
       permlink: '',
       weblink: '',
+      body: '',
       sites: null
     }
     this.handleChange = this.handleChange.bind(this)
