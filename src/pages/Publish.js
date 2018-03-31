@@ -36,7 +36,7 @@ const Publish = ({ handleChange, states : { author, wif, permlink, files, pageNa
                 <form className="pure-form publish" onSubmit={e => createSite(e, { author, wif, permlink, files, pageName})}>
                     <div className="pure-u-1">
                         <input type='text' placeholder='author' value={author} onChange={e => handleChange(e, 'author')} />
-                        <input type='text' placeholder='wif' value={wif} onChange={e => handleChange(e, 'wif')} />
+                        <input type='text' placeholder='wif' value={wif} onChange={e => handleChange(e, 'posting key')} />
                     </div>
                     <div className="pure-u-1">
                         <input type='text' placeholder='permlink' value={permlink} onChange={e => handleChange(e, 'permlink')} />

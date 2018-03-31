@@ -3,7 +3,7 @@ import i18next from 'i18next'
 const publish = {
     en:  {
         "publishTitle": "Publish your own websites",
-        "pPublishOne": 'All you need is a steem account, the corresponding posting WIF, a name and the folder with the content. Just drop the folder here to start fast.  Also can seed the page in ',
+        "pPublishOne": 'All you need is a steem account, the corresponding posting key, a name and the folder with the content. Just drop the folder here to start fast.  Also can seed the page in ',
         'pPublishTwo': ' or with some App that support torrent over WebRTC ',
         'dropPublishOne': 'Drop files anywhere',
         'dropPublishTwo': 'files will be added',
@@ -12,7 +12,7 @@ const publish = {
         'discoverEmpty': 'No site discover yet'
     }, es: {
         "publishTitle": "Publica tu propio sitio web",
-        "pPublishOne": 'Todo lo que necesitas es una cuenta de steem, su correspondiente WIF, un nombre y la carpeta con el contenido de la página. Simplemente arrastra la carpeta para empezar rápido. También puedes seedear la página en ',
+        "pPublishOne": 'Todo lo que necesitas es una cuenta de steem, su correspondiente posting key, un nombre y la carpeta con el contenido de la página. Simplemente arrastra la carpeta para empezar rápido. También puedes seedear la página en ',
         'pPublishTwo': ' o con alguna App que soporte torrent por medio de WebRTC ',
         'dropPublishOne': 'Suelta los archivos en cualquier parte',
         'dropPublishTwo': 'archivos van a ser agregados',
