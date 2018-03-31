@@ -1,8 +1,7 @@
 import { notify } from 'react-notify-toast'
 
-function createSite (e, { author, wif, permlink, files, pageName })  {
+function createSite (e, { author, wif, permlink, files, pageName, body })  {
     const title = pageName
-    const body = 'SECOND BEST SITE EVER'
     const jsonMetadata = {
       app: 'steemsites'
     }

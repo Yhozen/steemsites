@@ -115,7 +115,7 @@ input {
     margin: 0px auto;
     display: block;
 }
-input[type=text] {
+input[type=text], input[type=password] {
     width: 80%;
     border: 4px solid var(--input-border);
     border-radius: 5px;
@@ -127,12 +127,12 @@ input[type=text] {
     font-size: 17px;
     text-transform: uppercase;
 }
-input[type=text]:focus{
+input[type=text]:focus, input[type=password]:focus{
     border-color: dodgerBlue;
     box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
-.publish .pure-u-1 input[type=text] {
+.publish .pure-u-1 input[type=text], .publish .pure-u-1 input[type=password] {
     width: 99%;
     margin: 6px auto;
     display: block;

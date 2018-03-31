@@ -21,7 +21,7 @@ const getDiscover = sites => {
     )
 }
 
-const Publish = ({ handleChange, states : { author, wif, permlink, files, pageName, sites } }) => {
+const Publish = ({ handleChange, states : { author, wif, permlink, files, pageName, sites, body } }) => {
     return (
     <section className='content-section' id='section-2'>
         <div className="flex-container">
@@ -33,14 +33,15 @@ const Publish = ({ handleChange, states : { author, wif, permlink, files, pageNa
                     (see <a href="https://webtorrent.io/desktop/" >WebTorrent Desktop</a> (recommended) or <a href="https://www.vuze.com" >Vuze</a>)  </p>
             </Animated>
             <Animated offset="50" animation='slide-right'>
-                <form className="pure-form publish" onSubmit={e => createSite(e, { author, wif, permlink, files, pageName})}>
+                <form className="pure-form publish" onSubmit={e => createSite(e, { author, wif, permlink, files, pageName, body})}>
                     <div className="pure-u-1">
                         <input type='text' placeholder='author' value={author} onChange={e => handleChange(e, 'author')} />
-                        <input type='text' placeholder='wif' value={wif} onChange={e => handleChange(e, 'posting key')} />
+                        <input type='password' placeholder='Posting key' value={wif} onChange={e => handleChange(e, 'wif')} />
                     </div>
                     <div className="pure-u-1">
                         <input type='text' placeholder='permlink' value={permlink} onChange={e => handleChange(e, 'permlink')} />
                         <input type='text' placeholder='name' value={pageName} onChange={e => handleChange(e, 'pageName')} />
+                        <input type='text' placeholder='body' value={body} onChange={e => handleChange(e, 'body')} />
                         <button type="submit" id="publishButton" className="pure-button pure-button-primary">Publish</button>
                     </div>
                     <div> <p id="dropText">{i18next.t('dropPublishOne')} - {files.length} {i18next.t('dropPublishTwo')} </p>  </div>
