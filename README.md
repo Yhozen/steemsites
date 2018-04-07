@@ -1,7 +1,7 @@
 # SteemSites
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Yhozen/steemsites.svg)](https://greenkeeper.io/)
-[![Travis](https://travis-ci.org/Yhozen/steemsites.svg?branch=master&style=flat-square)](https://yhozen.github.io/steemsites/)
+[![Travis](https://travis-ci.org/Yhozen/steemsites.svg?branch=master&style=flat-square)](https://travis-ci.org/Yhozen/steemsites)
 [![Code Climate](https://codeclimate.com/github/Yhozen/steemsites/badges/gpa.svg?style=flat-square)](https://codeclimate.com/github/Yhozen/steemsites)
 ![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)
 
