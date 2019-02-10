@@ -5,7 +5,7 @@
   "dependencies": {
     "aos": "^2.2.0",
     "drag-drop": "^2.13.2",
-    "i18next": "^11.0.0",
+    "i18next": "^15.0.1",
     "peerweb": "^0.2.8",
     "purecss": "^1.0.0",
     "react": "^16.2.0",
