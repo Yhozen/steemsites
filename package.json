@@ -15,7 +15,7 @@
     "steem": "^0.7.1"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^3.0.0",
     "react-scripts": "1.1.2"
   },
   "scripts": {
